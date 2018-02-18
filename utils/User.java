@@ -8,6 +8,7 @@ package utils;
 import enums.AccessLevel;
 import content.Post;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -24,6 +25,11 @@ public class User {
     //Track posts in program
     //Track vehicles in program
     //Track events in program
+    
+    public User(String name) //Only to be used for logging in
+    {
+        this.username = name;
+    }
     
     public User(String name, String username, String password, String email, ContactInfo contactInfo)
     {
@@ -48,5 +54,26 @@ public class User {
     public String getName()
     {
         return this.username;
+    }
+    
+    @Override
+    public boolean equals(Object o)
+    {
+        if (!(o instanceof User))
+        {
+            return false;
+        }
+        return (this.username.equalsIgnoreCase(((User)o).username));
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.username);
+        return hash;
+    }
+
+    public boolean passwordMatches(String password) {
+        return password.equals(this.password);
     }
 }

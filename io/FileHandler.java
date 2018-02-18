@@ -5,11 +5,14 @@
  */
 package io;
 
+import enums.Status;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import utils.User;
 
 /**
  *
@@ -40,5 +43,18 @@ public class FileHandler {
         {
             return null;
         }
+    }
+    
+    public static ArrayList<User> getUsers()
+    {
+        return (ArrayList<User>)read(new File("resources/users.bin"));
+    }
+    
+    public static Status writeUsers(ArrayList<User> toUpdate)
+    {
+        ArrayList<User> allUsers = getUsers();
+        allUsers.removeAll(allUsers);
+        allUsers.addAll(allUsers);
+        return Status.SUCCESS;
     }
 }
