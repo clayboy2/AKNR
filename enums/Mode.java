@@ -7,10 +7,10 @@ package enums;
 
 /**
  *
- * @author amclay2
+ * @author austen
  */
-public enum Status {
-    SUCCESS,
-    RUNNING,
-    FAIL;
+public enum Mode {
+    SIMPLE,
+    OBJECT,
+    ERROR;
 }

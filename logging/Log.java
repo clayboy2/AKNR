@@ -5,34 +5,26 @@
  */
 package logging;
 
-import networking.User;
-
 /**
  *
- * @author amclay2
+ * @author austen
  */
-public class AccessViolation {
-    private final User violator;
+public class Log implements Loggable{
     private final String message;
     
-    public AccessViolation(String message, User violator)
+    public Log(String message)
     {
         this.message = message;
-        this.violator = violator;
-    }
-    
-    public User getViolator()
-    {
-        return this.violator;
     }
     
     public String getMessage()
     {
-        return this.message;
+        return message;
     }
     
-    public void log()
-    {
+    @Override
+    public void log() {
         
     }
+    
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,8 +8,106 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClientGUIController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="client.ClientGUIController">
     <stylesheets>
-        <URL value="@clientgui.css"/>
+        <URL value="@clientgui.css" />
     </stylesheets>
+   <children>
+      <BorderPane layoutX="109.0" layoutY="48.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                <Button mnemonicParsing="false" text="Settings" />
+                  <Label text="AKNR" />
+              </items>
+            </ToolBar>
+         </top>
+         <left>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="21.0" layoutY="31.0" text="A">
+                           <font>
+                              <Font size="93.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="24.0" layoutY="37.0" text="K">
+                           <font>
+                              <Font size="93.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </left>
+         <right>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="17.0" layoutY="40.0" text="N">
+                           <font>
+                              <Font size="93.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="18.0" layoutY="31.0" text="R">
+                           <font>
+                              <Font size="93.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </right>
+         <bottom>
+            <TextArea editable="false" prefHeight="46.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="314.0" prefWidth="205.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="85.0" layoutY="71.0" text="Username:" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="85.0" layoutY="71.0" text="Password:" />
+                              <Button layoutX="174.0" layoutY="131.0" mnemonicParsing="false" text="Submit" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="314.0" prefWidth="193.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TextField layoutX="11.0" layoutY="66.0" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TextField layoutX="11.0" layoutY="66.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+   </children>
 </AnchorPane>

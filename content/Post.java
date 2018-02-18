@@ -8,7 +8,7 @@ package content;
 import java.io.File;
 import java.util.Date;
 import enums.AccessLevel;
-import utils.User;
+import networking.User;
 
 /**
  *

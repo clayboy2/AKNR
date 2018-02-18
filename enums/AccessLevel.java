@@ -7,7 +7,7 @@ package enums;
 
 import logging.AccessViolation;
 import logging.InvalidOperation;
-import utils.User;
+import networking.User;
 
 /**
  *

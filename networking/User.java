@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utils;
+package networking;
 
+import containers.ContactInfo;
 import enums.AccessLevel;
-import content.Post;
 import java.util.Date;
 import java.util.Objects;
 

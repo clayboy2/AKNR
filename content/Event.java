@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import logging.AccessViolation;
 import enums.AccessLevel;
-import utils.User;
+import networking.User;
 
 /**
  *
