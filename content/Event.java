@@ -8,8 +8,8 @@ package content;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
-import security.AccessViolation;
-import utils.AccessLevel;
+import logging.AccessViolation;
+import enums.AccessLevel;
 import utils.User;
 
 /**

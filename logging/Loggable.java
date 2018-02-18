@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io;
+package logging;
+
+import java.io.Serializable;
 
 /**
  *
- * @author austen
+ * @author amclay2
  */
-public class NetworkController {
-    
+public interface Loggable extends Serializable{
+    public void log();
 }

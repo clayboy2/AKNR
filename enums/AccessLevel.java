@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utils;
+package enums;
 
-import security.AccessViolation;
-import security.InvalidOperation;
+import logging.AccessViolation;
+import logging.InvalidOperation;
+import utils.User;
 
 /**
  *

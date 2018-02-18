@@ -7,7 +7,7 @@ package content;
 
 import java.io.File;
 import java.util.Date;
-import utils.AccessLevel;
+import enums.AccessLevel;
 import utils.User;
 
 /**

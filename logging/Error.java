@@ -3,27 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package security;
+package logging;
 
 /**
  *
  * @author amclay2
  */
-public class InvalidOperation {
+public class Error implements Loggable{
     private final String message;
+    private Exception e;
     
-    public InvalidOperation(String message)
+    public Error(String message)
     {
         this.message = message;
     }
     
-    public String getMessage()
+    public Error(String message, Exception e)
     {
-        return message;
+        this.message = message;
+        this.e = e;
     }
-    
-    public void log()
-    {
-        
+
+    @Override
+    public void log() {
     }
 }

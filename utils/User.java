@@ -5,6 +5,7 @@
  */
 package utils;
 
+import enums.AccessLevel;
 import content.Post;
 import java.util.Date;
 
@@ -42,5 +43,10 @@ public class User {
     public void setAccessLevel(AccessLevel newLevel)
     {
         this.accessLevel = newLevel;
+    }
+    
+    public String getName()
+    {
+        return this.username;
     }
 }
