@@ -20,14 +20,24 @@ public class RegisterUser {
     public static Status createUser(String name, String username, String password, String email, ContactInfo contactInfo)
     {
         User u = new User(name, username, password, email, contactInfo);
+        if (isExistingUser(u))
+        {
+            return Status.SUCCESS;
+        }
+        ArrayList<User> wrapper = new ArrayList<>();
+        wrapper.add(u);
+        FileHandler.writeUsers(wrapper);
+        return Status.SUCCESS;
+    }
+    
+    private static boolean isExistingUser(User u)
+    {
         ArrayList<User> existingUsers = FileHandler.getUsers();
         if (existingUsers.contains(u))
         {
-            new Log("Username: "+username+" already exists").log();
-            return Status.FAIL;
+            new Log("Username: "+u.getName()+" already exists").log();
+            return true;
         }
-        ArrayList<User> wrapper = new ArrayList<>();
-        FileHandler.writeUsers(wrapper);
-        return Status.SUCCESS;
+        return false;
     }
 }

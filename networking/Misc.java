@@ -17,12 +17,90 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import logging.Error;
 import enums.Mode;
+import io.FileHandler;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 /**
  *
  * @author austen
  */
 public class Misc {
+
+    public static void performFileCheck() {
+        //Start with resources folder...
+        ArrayList<Resource> resources = getFilesNeeded();
+        for (Resource r : resources)
+        {
+            if (r.getFile().exists())
+            {
+                if (r.isDirectory()&&!r.getFile().isDirectory()) //If it needs to be a dir and is not
+                {
+                    r.getFile().delete();
+                    r.getFile().mkdir();
+                }
+                else if (!r.isDirectory()&&r.getFile().isDirectory()) //If it needs to be a file and is not
+                {
+                    r.getFile().delete();
+                    try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(r.getFile()))){
+                        r.getFile().createNewFile();
+                        out.writeObject(new ArrayList<>());
+                        
+                    } catch (IOException ex) {
+                        new Error("File not created",ex).log();
+                    }
+                }
+                else if (!r.getFile().exists()) //If nothing exists there
+                {
+                    if (r.isDirectory())
+                    {
+                        r.getFile().mkdir();
+                    }
+                    else
+                    {
+                        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(r.getFile()))){
+                            r.getFile().createNewFile();
+                            out.writeObject(new ArrayList<>());
+                        } catch (IOException ex) {
+                            new Error("File not created",ex).log();
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private static ArrayList<Resource> getFilesNeeded()
+    {
+        ArrayList<Resource> toReturn = new ArrayList<>();
+        toReturn.add(new Resource("resources", true));
+        toReturn.add(new Resource("resources/users.bin",false));
+        toReturn.add(new Resource("resources/logging.bin",false));
+        return toReturn;
+    }
+    
+    private static class Resource
+    {
+        private final File file;
+        private final boolean isDirectory;
+        
+        private Resource(String fileName, boolean isDirectory)
+        {
+            this.file = new File(fileName);
+            this.isDirectory = isDirectory;
+        }
+        
+        private File getFile()
+        {
+            return this.file;
+        }
+        
+        private boolean isDirectory()
+        {
+            return this.isDirectory;
+        }
+    }
 
     public static class IOBox {
 
